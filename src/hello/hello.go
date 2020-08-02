@@ -12,7 +12,7 @@ func main() {
 
 	switch comando {
 	case 1:
-		fmt.Println("Monitorando...")
+		iniciarMonitoramento()
 	case 2:
 		fmt.Println("Exibindo Logs...")
 	case 0:
@@ -43,4 +43,11 @@ func leComando() int {
 	fmt.Println("O comando escolhido foi", comando)
 
 	return comando
+}
+
+func iniciarMonitoramento() {
+	fmt.Println("Monitorando...")
+	site := "https://www.alura.com.br/"
+
+	//resp, err := http.Get(site)
 }
