@@ -4,6 +4,12 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"time"
+)
+
+const (
+	monitoramentos = 3
+	delay          = 5
 )
 
 func main() {
@@ -45,6 +51,7 @@ func leComando() int {
 	var comando int
 	fmt.Scan(&comando)
 	fmt.Println("O comando escolhido foi", comando)
+	fmt.Println("")
 
 	return comando
 }
@@ -56,13 +63,24 @@ func iniciarMonitoramento() {
 		"https://www.caelum.com.br",
 		"https://hipsters.tech/"}
 
-	for _, site := range sites {
-		resp, _ := http.Get(site)
-
-		if resp.StatusCode == http.StatusOK {
-			fmt.Println("Site:", site, "foi carregado com sucesso!")
-		} else {
-			fmt.Println("Site:", site, "está com problemas. Status Code:", resp.StatusCode)
+	for i := 0; i < monitoramentos; i++ {
+		for _, site := range sites {
+			testaSite(site)
 		}
+
+		time.Sleep(delay * time.Second)
+		fmt.Println("")
+	}
+
+	fmt.Println("")
+}
+
+func testaSite(site string) {
+	resp, _ := http.Get(site)
+
+	if resp.StatusCode == http.StatusOK {
+		fmt.Println("Site:", site, "foi carregado com sucesso!")
+	} else {
+		fmt.Println("Site:", site, "está com problemas. Status Code:", resp.StatusCode)
 	}
 }
