@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"reflect"
 )
 
 func main() {
@@ -56,6 +57,8 @@ func iniciarMonitoramento() {
 	sites[2] = "https://www.caelum.com.br"
 
 	fmt.Println(sites)
+	fmt.Println(reflect.TypeOf(sites))
+	exibeNomes()
 
 	// resp, _ := http.Get(site)
 
@@ -64,4 +67,17 @@ func iniciarMonitoramento() {
 	// } else {
 	// 	fmt.Println("Site:", site, "está com problemas. Status Code:", resp.StatusCode)
 	// }
+}
+
+func exibeNomes() {
+	nomes := []string{"Douglas", "Daniel", "Bernardo"}
+	fmt.Println(reflect.TypeOf(nomes))
+	fmt.Println(nomes)
+	fmt.Println("O meu slice tem", len(nomes), "itens", cap(nomes))
+
+	nomes = append(nomes, "Aparecida")
+
+	fmt.Println(reflect.TypeOf(nomes))
+	fmt.Println(nomes)
+	fmt.Println("O meu slice tem", len(nomes), "itens", cap(nomes))
 }
