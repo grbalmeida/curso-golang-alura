@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"os"
-	"reflect"
 )
 
 func main() {
@@ -51,33 +51,18 @@ func leComando() int {
 
 func iniciarMonitoramento() {
 	fmt.Println("Monitorando...")
-	var sites [4]string
-	sites[0] = "http://random-status-code.herokuapp.com/"
-	sites[1] = "https://www.alura.com.br"
-	sites[2] = "https://www.caelum.com.br"
+	sites := []string{
+		"https://www.alura.com.br",
+		"https://www.caelum.com.br",
+		"https://hipsters.tech/"}
 
-	fmt.Println(sites)
-	fmt.Println(reflect.TypeOf(sites))
-	exibeNomes()
+	for _, site := range sites {
+		resp, _ := http.Get(site)
 
-	// resp, _ := http.Get(site)
-
-	// if resp.StatusCode == http.StatusOK {
-	// 	fmt.Println("Site:", site, "foi carregado com sucesso!")
-	// } else {
-	// 	fmt.Println("Site:", site, "está com problemas. Status Code:", resp.StatusCode)
-	// }
-}
-
-func exibeNomes() {
-	nomes := []string{"Douglas", "Daniel", "Bernardo"}
-	fmt.Println(reflect.TypeOf(nomes))
-	fmt.Println(nomes)
-	fmt.Println("O meu slice tem", len(nomes), "itens", cap(nomes))
-
-	nomes = append(nomes, "Aparecida")
-
-	fmt.Println(reflect.TypeOf(nomes))
-	fmt.Println(nomes)
-	fmt.Println("O meu slice tem", len(nomes), "itens", cap(nomes))
+		if resp.StatusCode == http.StatusOK {
+			fmt.Println("Site:", site, "foi carregado com sucesso!")
+		} else {
+			fmt.Println("Site:", site, "está com problemas. Status Code:", resp.StatusCode)
+		}
+	}
 }
