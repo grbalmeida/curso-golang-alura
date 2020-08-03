@@ -58,10 +58,12 @@ func leComando() int {
 
 func iniciarMonitoramento() {
 	fmt.Println("Monitorando...")
-	sites := []string{
-		"https://www.alura.com.br",
-		"https://www.caelum.com.br",
-		"https://hipsters.tech/"}
+	// sites := []string{
+	// 	"https://www.alura.com.br",
+	// 	"https://www.caelum.com.br",
+	// 	"https://hipsters.tech/"}
+
+	sites := leSitesDoArquivo()
 
 	for i := 0; i < monitoramentos; i++ {
 		for _, site := range sites {
@@ -83,4 +85,13 @@ func testaSite(site string) {
 	} else {
 		fmt.Println("Site:", site, "está com problemas. Status Code:", resp.StatusCode)
 	}
+}
+
+func leSitesDoArquivo() []string {
+	var sites []string
+	arquivo, _ := os.Open("sites.txt")
+
+	fmt.Println(arquivo)
+
+	return sites
 }
