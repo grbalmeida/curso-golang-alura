@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"net/http"
 	"os"
@@ -58,10 +59,6 @@ func leComando() int {
 
 func iniciarMonitoramento() {
 	fmt.Println("Monitorando...")
-	// sites := []string{
-	// 	"https://www.alura.com.br",
-	// 	"https://www.caelum.com.br",
-	// 	"https://hipsters.tech/"}
 
 	sites := leSitesDoArquivo()
 
@@ -99,7 +96,15 @@ func leSitesDoArquivo() []string {
 		fmt.Println("Ocorreu um erro:", err)
 	}
 
-	fmt.Println(arquivo)
+	leitor := bufio.NewReader(arquivo)
+
+	linha, err := leitor.ReadString('\n')
+
+	if err != nil {
+		fmt.Println("Ocorreu um erro:", err)
+	}
+
+	fmt.Println(linha)
 
 	return sites
 }
