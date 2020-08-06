@@ -6,6 +6,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -16,27 +17,25 @@ const (
 )
 
 func main() {
-	registraLog("https://www.alura.com", true)
-	registraLog("https://www.alura.com", false)
-	// exibeIntroducao()
+	exibeIntroducao()
 
-	// for {
-	// 	exibeMenu()
-	// 	comando := leComando()
+	for {
+		exibeMenu()
+		comando := leComando()
 
-	// 	switch comando {
-	// 	case 1:
-	// 		iniciarMonitoramento()
-	// 	case 2:
-	// 		fmt.Println("Exibindo Logs...")
-	// 	case 0:
-	// 		fmt.Println("Saindo do Programa")
-	// 		os.Exit(0)
-	// 	default:
-	// 		fmt.Println("Não conheço este comando")
-	// 		os.Exit(-1)
-	// 	}
-	// }
+		switch comando {
+		case 1:
+			iniciarMonitoramento()
+		case 2:
+			fmt.Println("Exibindo Logs...")
+		case 0:
+			fmt.Println("Saindo do Programa")
+			os.Exit(0)
+		default:
+			fmt.Println("Não conheço este comando")
+			os.Exit(-1)
+		}
+	}
 }
 
 func exibeIntroducao() {
@@ -121,13 +120,13 @@ func leSitesDoArquivo() []string {
 }
 
 func registraLog(site string, status bool) {
-	arquivo, err := os.OpenFile("log.txt", os.O_RDWR|os.O_CREATE, 0666)
+	arquivo, err := os.OpenFile("log.txt", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	fmt.Println(arquivo)
+	arquivo.WriteString(site + " - online: " + strconv.FormatBool(status) + "\n")
 
 	arquivo.Close()
 }
