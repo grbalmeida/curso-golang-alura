@@ -16,25 +16,27 @@ const (
 )
 
 func main() {
-	exibeIntroducao()
+	registraLog("https://www.alura.com", true)
+	registraLog("https://www.alura.com", false)
+	// exibeIntroducao()
 
-	for {
-		exibeMenu()
-		comando := leComando()
+	// for {
+	// 	exibeMenu()
+	// 	comando := leComando()
 
-		switch comando {
-		case 1:
-			iniciarMonitoramento()
-		case 2:
-			fmt.Println("Exibindo Logs...")
-		case 0:
-			fmt.Println("Saindo do Programa")
-			os.Exit(0)
-		default:
-			fmt.Println("Não conheço este comando")
-			os.Exit(-1)
-		}
-	}
+	// 	switch comando {
+	// 	case 1:
+	// 		iniciarMonitoramento()
+	// 	case 2:
+	// 		fmt.Println("Exibindo Logs...")
+	// 	case 0:
+	// 		fmt.Println("Saindo do Programa")
+	// 		os.Exit(0)
+	// 	default:
+	// 		fmt.Println("Não conheço este comando")
+	// 		os.Exit(-1)
+	// 	}
+	// }
 }
 
 func exibeIntroducao() {
@@ -85,8 +87,10 @@ func testaSite(site string) {
 
 	if resp.StatusCode == http.StatusOK {
 		fmt.Println("Site:", site, "foi carregado com sucesso!")
+		registraLog(site, true)
 	} else {
 		fmt.Println("Site:", site, "está com problemas. Status Code:", resp.StatusCode)
+		registraLog(site, false)
 	}
 }
 
@@ -114,4 +118,16 @@ func leSitesDoArquivo() []string {
 	arquivo.Close()
 
 	return sites
+}
+
+func registraLog(site string, status bool) {
+	arquivo, err := os.OpenFile("log.txt", os.O_RDWR|os.O_CREATE, 0666)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(arquivo)
+
+	arquivo.Close()
 }
