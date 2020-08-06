@@ -1,12 +1,24 @@
-https://www.alura.com.br - online: true
-https://www.caelum.com.br - online: true
-https://www.casadocodigo.com.br - online: true
-https://hipsters.tech - online: true
-https://www.alura.com.br - online: true
-https://www.caelum.com.br - online: true
-https://www.casadocodigo.com.br - online: true
-https://hipsters.tech - online: true
-https://www.alura.com.br - online: true
-https://www.caelum.com.br - online: true
-https://www.casadocodigo.com.br - online: true
-https://hipsters.tech - online: true
+05/08/2020 21:47:52 - https://www.alura.com.br - online: true
+05/08/2020 21:47:53 - https://www.caelum.com.br - online: true
+05/08/2020 21:47:53 - https://www.casadocodigo.com.br - online: true
+05/08/2020 21:47:54 - https://hipsters.tech - online: true
+05/08/2020 21:47:59 - https://www.alura.com.br - online: true
+05/08/2020 21:48:00 - https://www.caelum.com.br - online: true
+05/08/2020 21:48:00 - https://www.casadocodigo.com.br - online: true
+05/08/2020 21:48:00 - https://hipsters.tech - online: true
+05/08/2020 21:48:06 - https://www.alura.com.br - online: true
+05/08/2020 21:48:07 - https://www.caelum.com.br - online: true
+05/08/2020 21:48:07 - https://www.casadocodigo.com.br - online: true
+05/08/2020 21:48:07 - https://hipsters.tech - online: true
+05/08/2020 21:48:22 - https://www.alura.com.br - online: true
+05/08/2020 21:48:23 - https://www.caelum.com.br - online: true
+05/08/2020 21:48:23 - https://www.casadocodigo.com.br - online: true
+05/08/2020 21:48:23 - https://hipsters.tech - online: true
+05/08/2020 21:48:29 - https://www.alura.com.br - online: true
+05/08/2020 21:48:29 - https://www.caelum.com.br - online: true
+05/08/2020 21:48:30 - https://www.casadocodigo.com.br - online: true
+05/08/2020 21:48:30 - https://hipsters.tech - online: true
+05/08/2020 21:48:36 - https://www.alura.com.br - online: true
+05/08/2020 21:48:36 - https://www.caelum.com.br - online: true
+05/08/2020 21:48:36 - https://www.casadocodigo.com.br - online: true
+05/08/2020 21:48:37 - https://hipsters.tech - online: true
